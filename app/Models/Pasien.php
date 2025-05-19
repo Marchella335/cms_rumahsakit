@@ -20,12 +20,9 @@ class Pasien extends Model
         'nama',
         'alamat',
         'jenis_kelamin',
-        'tanggal_lahir',
+        'usia',
         'nomor_telepon',
+        'status_pasien'
     ];
 
-    // ④ Casting tanggal_lahir ke Carbon
-    protected $casts = [
-        'tanggal_lahir' => 'date',
-    ];
 }

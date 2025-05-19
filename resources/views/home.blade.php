@@ -34,6 +34,15 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body text-center">
+                        <h5 class="card-title">Pasien</h5>
+                        <p class="card-text">Lihat dan kelola rekam medis pasien.</p>
+                        <a href="{{ route('pasien.index') }}" class="btn btn-primary">Lihat Pasien</a>
+                    </div>
+</div>
+</div>
         </div>
     </div>
 </div>

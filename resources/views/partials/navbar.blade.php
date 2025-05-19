@@ -14,10 +14,7 @@
                 </li>
                 <!-- Staf Links -->
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('staf.index') }}">Data Staf</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('staf.create') }}">Tambah Staf</a>
+                    <a class="nav-link" href="{{ route('staf.index') }}">Staf</a>
                 </li>
                 <!-- Dokter Links -->
                 <li class="nav-item">
@@ -27,6 +24,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('rekam-medis.index') }}">Rekam Medis</a>
                 </li>
+                <!-- Pasien --> 
+                <li class="nav-item">
+                <a class="nav-link" href="{{ route('pasien.index') }}">Pasien</a>
             </ul>
         </div>
     </div>

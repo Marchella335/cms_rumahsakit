@@ -2,15 +2,17 @@
 
 @section('content')
 <div class="container">
-    <h1>Detail Pasien</h1>
+    <h2>Detail Pasien</h2>
 
-    <p><strong>Nama:</strong> {{ $pasien->nama }}</p>
-    <p><strong>Alamat:</strong> {{ $pasien->alamat }}</p>
-    <p><strong>No. Telepon:</strong> {{ $pasien->nomor_telepon }}</p>
-    <p><strong>Usia:</strong> {{ $pasien->usia }}</p>
-    <p><strong>Jenis Kelamin:</strong> {{ $pasien->jenis_kelamin }}</p>
-    <p><strong>Status Pasien:</strong> {{ $pasien->status_pasien }}</p>
+    <ul class="list-group">
+        <li class="list-group-item"><strong>Nama:</strong> {{ $pasien->nama }}</li>
+        <li class="list-group-item"><strong>Alamat:</strong> {{ $pasien->alamat }}</li>
+        <li class="list-group-item"><strong>Jenis Kelamin:</strong> {{ $pasien->jenis_kelamin }}</li>
+        <li class="list-group-item"><strong>Usia:</strong> {{ $pasien->usia }}</li>
+        <li class="list-group-item"><strong>Nomor Telepon:</strong> {{ $pasien->nomor_telepon }}</li>
+        <li class="list-group-item"><strong>Status Pasien:</strong> {{ $pasien->status_pasien }}</li>
+    </ul>
 
-    <a href="{{ route('pasien.index') }}" class="btn btn-secondary">Kembali</a>
+    <a href="{{ route('pasien.index') }}" class="btn btn-primary mt-3">Kembali</a>
 </div>
 @endsection

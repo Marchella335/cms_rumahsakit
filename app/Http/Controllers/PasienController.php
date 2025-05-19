@@ -24,8 +24,9 @@ class PasienController extends Controller
             'nama'            => 'required|string|max:255',
             'alamat'          => 'nullable|string',
             'jenis_kelamin'   => 'required|in:L,P',
-            'tanggal_lahir'   => 'required|date',
+            'usia'            => 'required|int',
             'nomor_telepon'   => 'required|string|max:20',
+            'status_pasien'   => 'required|string|max:255'
         ]);
 
         Pasien::create($request->all());
@@ -49,8 +50,10 @@ class PasienController extends Controller
             'nama'            => 'required|string|max:255',
             'alamat'          => 'nullable|string',
             'jenis_kelamin'   => 'required|in:L,P',
-            'tanggal_lahir'   => 'required|date',
+            'usia'            => 'required|int',
             'nomor_telepon'   => 'required|string|max:20',
+            'status_pasien'   => 'required|string|max:255'
+
         ]);
 
         $pasien->update($request->all());
