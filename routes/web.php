@@ -10,6 +10,7 @@ Route::resource('staf', StafController::class);
 Route::resource('dokter', DokterController::class);
 Route::resource('rekam-medis', RekamMedisController::class);
 Route::resource('pasien', PasienController::class);
+Route::get('/pasien/{id}/delete', [PasienController::class, 'delete'])->name('pasien.delete');
 
 
 Route::get('/', function () {

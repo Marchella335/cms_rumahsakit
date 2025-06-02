@@ -2,44 +2,55 @@
 
 @section('content')
 <div class="container">
-    <h2>Data Pasien</h2>
+    <h1 class="mb-3">Daftar Pasien</h1>
 
-    <a href="{{ route('pasien.create') }}" class="btn btn-success mb-3">Tambah Pasien</a>
+    <a href="{{ route('pasien.create') }}" class="btn btn-primary mb-3">+ Tambah Pasien</a>
 
+    {{-- Form Pencarian --}}
+    <form method="GET" action="{{ route('pasien.index') }}" class="mb-3">
+        <div class="input-group">
+            <input type="text" name="search" class="form-control" placeholder="Cari nama pasien..." value="{{ request('search') }}">
+            <button class="btn btn-outline-secondary" type="submit">Cari</button>
+        </div>
+    </form>
+
+    {{-- Pesan sukses --}}
     @if(session('success'))
         <div class="alert alert-success">{{ session('success') }}</div>
     @endif
 
+    {{-- Tabel Pasien --}}
     <table class="table table-bordered">
         <thead>
             <tr>
                 <th>Nama</th>
+                <th>Alamat</th>
+                <th>Jenis Kelamin</th>
                 <th>Usia</th>
                 <th>Nomor Telepon</th>
-                <th>Status</th>
+                <th>Status Pasien</th>
                 <th>Aksi</th>
             </tr>
         </thead>
         <tbody>
-            @foreach($pasiens as $pasien)
-            <tr>
-                <td>{{ $pasien->nama }}</td>
-                <td>{{ $pasien->usia }}</td>
-                <td>{{ $pasien->nomor_telepon }}</td>
-                <td>{{ $pasien->status_pasien }}</td>
-                <td>
-                    <a href="{{ route('pasien.show', $pasien->id) }}" class="btn btn-info btn-sm">Detail</a>
-                    <a href="{{ route('pasien.edit', $pasien->id) }}" class="btn btn-warning btn-sm">Edit</a>
-                    <a href="{{ route('pasien.destroy', $pasien->id) }}"
-                       onclick="event.preventDefault(); document.getElementById('delete-form-{{ $pasien->id }}').submit();"
-                       class="btn btn-danger btn-sm">Hapus</a>
-                    <form id="delete-form-{{ $pasien->id }}" action="{{ route('pasien.destroy', $pasien->id) }}" method="POST" style="display: none;">
-                        @csrf
-                        @method('DELETE')
-                    </form>
-                </td>
-            </tr>
-            @endforeach
+            @forelse($pasiens as $pasien)
+                <tr>
+                    <td>{{ $pasien->nama }}</td>
+                    <td>{{ $pasien->alamat }}</td>
+                    <td>{{ $pasien->jenis_kelamin }}</td>
+                    <td>{{ $pasien->usia }}</td>
+                    <td>{{ $pasien->nomor_telepon }}</td>
+                    <td>{{ $pasien->status_pasien }}</td>
+                    <td>
+                        <a href="{{ route('pasien.edit', $pasien->id) }}" class="btn btn-sm btn-warning">Edit</a>
+                        <a href="{{ route('pasien.delete', $pasien->id) }}" class="btn btn-sm btn-danger">Hapus</a>
+                    </td>
+                </tr>
+            @empty
+                <tr>
+                    <td colspan="7" class="text-center">Data tidak ditemukan.</td>
+                </tr>
+            @endforelse
         </tbody>
     </table>
 </div>
